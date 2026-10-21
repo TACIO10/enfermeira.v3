@@ -1,4 +1,6 @@
 import { AppDemo } from "./app-demo";
+import { HeroPhones } from "./hero-phones";
+import { Reveal } from "./reveal";
 import { OfferBar } from "./offer-bar";
 import { TestimonialsCarousel } from "./testimonials-carousel";
 import { VturbPlayer } from "./vturb-player";
@@ -30,6 +32,10 @@ const subjects = [
   { icon: "📜", title: "Legislação em Enfermagem", text: "Memorize as principais leis e normas da profissão.", topics: ["Lei do Exercício Profissional", "COFEN", "COREN", "Responsabilidades legais", "Direitos do profissional"] },
   { icon: "🎧", title: "Conhecimentos Complementares", status: "Playlist em constante atualização", text: "Além dos temas principais, você terá acesso a novas playlists adicionadas conforme os editais forem sendo publicados.", topics: ["Saúde do Adulto e do Idoso", "Clínica Médica e Cirúrgica", "Saúde Mental", "Centro Cirúrgico e CME", "Segurança do Paciente", "Controle de Infecções e CCIH", "Gestão e Gerenciamento em Enfermagem", "Nutrição, dietoterapia e sondagens", "Feridas, curativos e lesões por pressão", "Procedimentos e técnicas de Enfermagem", "Português e conhecimentos básicos"] },
 ];
+
+// Todos os assuntos dos módulos, divididos em três faixas deslizantes.
+const allTopics = [...new Set(subjects.flatMap((subject) => subject.topics))];
+const marqueeTopics = [0, 1, 2].map((row) => allTopics.filter((_, index) => index % 3 === row));
 
 const testimonials = [
   { image: `${asset}/media/depoimento-juliana.webp`, alt: "Depoimento de Juliana Rocha" },
@@ -64,6 +70,7 @@ const bonuses = [
 export default function Home() {
   return (
     <main>
+      <Reveal />
       <OfferBar parcelamento={parcelamentoAnual} />
 
       <section className="hero" id="inicio">
@@ -101,20 +108,24 @@ export default function Home() {
           </div>
 
           <div className="hero-visual">
-            <div className="visual-orbit orbit-one" />
-            <div className="visual-orbit orbit-two" />
-            <img
-              src={`${asset}/media/oferta-memoria-musical.webp`}
-              alt="Método da Memória Musical no celular com comunidade, questões e checklist"
-            />
-            <div className="floating-card">
-              <span className="sound-bars"><i /><i /><i /><i /><i /></span>
-              <div>
-                <small>Agora tocando</small>
-                <strong>Revisão de SUS</strong>
-              </div>
-            </div>
+            <HeroPhones />
           </div>
+        </div>
+      </section>
+
+      <section className="stats" aria-label="O que você recebe">
+        <div className="wrap stats-grid">
+          {[
+            ["1.000+", "músicas educativas"],
+            ["150+", "temas de Enfermagem"],
+            ["Imediato", "acesso após a compra"],
+            ["7 dias", "de garantia"],
+          ].map(([value, label]) => (
+            <div className="stat" key={label}>
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -202,6 +213,21 @@ export default function Home() {
             <span className="eyebrow">Dentro da plataforma</span>
             <h2>Os temas que mais aparecem nos editais, prontos para acompanhar você.</h2>
           </div>
+        </div>
+        <div className="topic-marquee" aria-hidden="true">
+          {[0, 1, 2].map((row) => (
+            <div className={`marquee-row ${row % 2 ? "reverse" : ""}`} key={row}>
+              <div className="marquee-track">
+                {[...marqueeTopics[row], ...marqueeTopics[row]].map((topic, index) => (
+                  <span className={`pill ${(index + row) % 3 === 0 ? "pill-on" : ""}`} key={`${topic}-${index}`}>
+                    {(index + row) % 3 === 0 ? "+ " : ""}{topic}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="wrap">
           <div className="subject-grid">
             {subjects.map((subject, index) => (
               <details key={subject.title} className="subject-card">
