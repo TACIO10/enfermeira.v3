@@ -298,11 +298,11 @@ h3 { font-size: 24px; }
 .bonus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .bonus-grid article { overflow: hidden; border: 1px solid var(--border); border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); transition: transform .25s, border-color .25s, box-shadow .25s; }
 .bonus-grid article:hover { transform: translateY(-4px); border-color: rgba(31,211,107,.45); box-shadow: 0 30px 60px -30px rgba(31,211,107,.45); }
-.bonus-grid img { width: 100%; aspect-ratio: 1.2 / 1; object-fit: cover; }
-.bonus-copy { padding: 24px; }
+.bonus-grid img { width: 100%; aspect-ratio: 1.4 / 1; object-fit: cover; border-bottom: 1px solid var(--border); }
+.bonus-copy { padding: 20px 22px 22px; }
 .bonus-copy > span { color: var(--lime); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-.bonus-copy h3 { margin: 12px 0; font-size: 21px; }
-.bonus-copy p { color: var(--muted); font-size: 14px; }
+.bonus-copy h3 { margin: 10px 0 8px; font-size: 19px; }
+.bonus-copy p { margin-bottom: 14px; color: var(--muted); font-size: 14px; }
 .bonus-copy > strong { display: inline-block; padding: 6px 10px; border-radius: 999px; background: rgba(31,211,107,.12); color: var(--green); font-size: 11px; }
 
 /* ---------- Depoimentos ---------- */

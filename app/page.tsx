@@ -325,7 +325,7 @@ export default function Home() {
           <div className="bonus-grid">
             {bonuses.map((bonus) => (
               <article key={bonus.title}>
-                <img src={bonus.image} alt={`Capa: ${bonus.title}`} loading="lazy" decoding="async" />
+                <img src={bonus.image} alt={`Prévia do bônus: ${bonus.title}`} width="1120" height="800" loading="lazy" decoding="async" />
                 <div className="bonus-copy">
                   <span>Bônus {bonus.number}</span>
                   <h3>{bonus.title}</h3>
