@@ -9,6 +9,10 @@ import { VturbPlayer } from "./vturb-player";
 const asset = process.env.PAGES_BASE_PATH ?? "";
 
 const precoMensal = "67";
+// Ancoragem de valor da seção de bônus: app por 12 meses no preço mensal
+// + valor de cada bônus. Edite os valores dos bônus no array `bonuses`.
+const valorAppAnual = 67 * 12;
+const formatarReais = (valor: number) => `R$ ${valor.toLocaleString("pt-BR")}`;
 const precoAnualMensal = "20,37";
 const parcelamentoAnual = `12x R$ ${precoAnualMensal}`;
 
@@ -49,30 +53,35 @@ const testimonials = [
 const bonuses = [
   {
     number: "01",
+    value: 97,
     title: "Checklist dos assuntos mais cobrados",
     text: "Saiba o que priorizar e acompanhe sua evolução pelos temas com maior incidência.",
     image: `${asset}/media/bonus-checklist.webp`,
   },
   {
     number: "02",
+    value: 97,
     title: "Banco de questões comentadas",
     text: "Pratique após cada revisão com questões organizadas por disciplina.",
     image: `${asset}/media/bonus-questoes.webp`,
   },
   {
     number: "03",
+    value: 147,
     title: "Comunidade exclusiva de alunos",
     text: "Troque experiências, tire dúvidas e acompanhe as novidades do método.",
     image: `${asset}/media/bonus-comunidade.webp`,
   },
   {
     number: "04",
+    value: 67,
     title: "Letras comentadas",
     text: "A letra de cada música com os trechos-chave destacados e o conceito explicado.",
     image: `${asset}/media/bonus-letras.webp`,
   },
   {
     number: "05",
+    value: 47,
     title: "Cronograma de 30 dias até a prova",
     text: "O que ouvir em cada dia, com revisões espaçadas para fixar o conteúdo.",
     image: `${asset}/media/bonus-cronograma.webp`,
@@ -342,10 +351,34 @@ export default function Home() {
                   <span>Bônus {bonus.number}</span>
                   <h3>{bonus.title}</h3>
                   <p>{bonus.text}</p>
-                  <strong>Incluído no Plano Completo</strong>
+                  <div className="bonus-price">
+                    <s>De {formatarReais(bonus.value)}</s>
+                    <strong>por R$ 0</strong>
+                    <small>no Plano Completo</small>
+                  </div>
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="value-stack">
+            <span className="value-title">Tudo o que você recebe no Plano Completo</span>
+            <ul>
+              <li><span>Método da Memória Musical · 12 meses de acesso</span><s>{formatarReais(valorAppAnual)}</s></li>
+              {bonuses.map((bonus) => (
+                <li key={bonus.title}><span>Bônus {bonus.number} · {bonus.title}</span><s>{formatarReais(bonus.value)}</s></li>
+              ))}
+            </ul>
+            <div className="value-total">
+              <span>Somando tudo, você pagaria</span>
+              <s>{formatarReais(valorAppAnual + bonuses.reduce((total, bonus) => total + bonus.value, 0))}</s>
+            </div>
+            <div className="value-today">
+              <p>Mas hoje você <strong>não vai pagar isso.</strong> No Plano Completo, você leva o método e os cinco bônus por</p>
+              <div className="value-price"><small>12x de</small><strong>R$ {precoAnualMensal}</strong></div>
+              <p className="value-cash">ou R$ 197 à vista</p>
+              <button className="button primary" type="button" data-price-jump>Quero o Plano Completo com os 5 bônus</button>
+            </div>
           </div>
         </div>
       </section>
