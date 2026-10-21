@@ -65,6 +65,18 @@ const bonuses = [
     text: "Troque experiências, tire dúvidas e acompanhe as novidades do método.",
     image: `${asset}/media/bonus-comunidade.webp`,
   },
+  {
+    number: "04",
+    title: "Letras comentadas",
+    text: "A letra de cada música com os trechos-chave destacados e o conceito explicado.",
+    image: `${asset}/media/bonus-letras.webp`,
+  },
+  {
+    number: "05",
+    title: "Cronograma de 30 dias até a prova",
+    text: "O que ouvir em cada dia, com revisões espaçadas para fixar o conteúdo.",
+    image: `${asset}/media/bonus-cronograma.webp`,
+  },
 ];
 
 export default function Home() {
@@ -318,9 +330,9 @@ export default function Home() {
           <div className="section-heading split-heading">
             <div>
               <span className="eyebrow">No plano completo</span>
-              <h2>Três recursos para transformar revisão em preparação.</h2>
+              <h2>Cinco recursos para transformar revisão em preparação.</h2>
             </div>
-            <p>Ouça, priorize o que estudar, pratique e mantenha o ritmo com outros alunos.</p>
+            <p>Ouça, entenda cada letra, siga o cronograma, pratique e mantenha o ritmo com outros alunos.</p>
           </div>
           <div className="bonus-grid">
             {bonuses.map((bonus) => (
@@ -395,6 +407,8 @@ export default function Home() {
                 <li>✓ Checklist dos assuntos mais cobrados</li>
                 <li>✓ Banco de questões comentadas</li>
                 <li>✓ Comunidade exclusiva de alunos</li>
+                <li>✓ Letras comentadas</li>
+                <li>✓ Cronograma de 30 dias até a prova</li>
                 <li>✓ Suporte prioritário</li>
               </ul>
               <a
