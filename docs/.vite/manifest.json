@@ -51,7 +51,7 @@
     ]
   },
   "app/vturb-player.tsx": {
-    "file": "assets/vturb-player-CSjJw9mN.js",
+    "file": "assets/vturb-player-C2_5qoii.js",
     "name": "vturb-player",
     "src": "app/vturb-player.tsx",
     "isDynamicEntry": true,
@@ -61,7 +61,7 @@
     ]
   },
   "node_modules/vinext/dist/shims/layout-segment-context.js": {
-    "file": "assets/layout-segment-context-DkYh2Nv3.js",
+    "file": "assets/layout-segment-context-Clw6DR2L.js",
     "name": "layout-segment-context",
     "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
     "isDynamicEntry": true,
@@ -72,7 +72,7 @@
     ]
   },
   "virtual:vinext-app-browser-entry": {
-    "file": "assets/index-CYmu0zvK.js",
+    "file": "assets/index-DdhUREid.js",
     "name": "index",
     "src": "virtual:vinext-app-browser-entry",
     "isEntry": true,
