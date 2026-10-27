@@ -339,7 +339,7 @@ export default function Home() {
           <div className="section-heading split-heading">
             <div>
               <span className="eyebrow">No plano completo</span>
-              <h2>Cinco recursos para transformar revisão em preparação.</h2>
+              <h2>5 bônus para transformar revisão em preparação.</h2>
             </div>
             <p>Ouça, entenda cada letra, siga o cronograma, pratique e mantenha o ritmo com outros alunos.</p>
           </div>
