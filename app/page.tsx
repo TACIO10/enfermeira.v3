@@ -373,12 +373,6 @@ export default function Home() {
               <span>Somando tudo, você pagaria</span>
               <s>{formatarReais(valorAppAnual + bonuses.reduce((total, bonus) => total + bonus.value, 0))}</s>
             </div>
-            <div className="value-today">
-              <p>Mas hoje você <strong>não vai pagar isso.</strong> No Plano Completo, você leva o método e os cinco bônus por</p>
-              <div className="value-price"><small>12x de</small><strong>R$ {precoAnualMensal}</strong></div>
-              <p className="value-cash">ou R$ 197 à vista</p>
-              <button className="button primary" type="button" data-price-jump>Quero o Plano Completo com os 5 bônus</button>
-            </div>
           </div>
         </div>
       </section>
