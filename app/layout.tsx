@@ -45,28 +45,16 @@ export default function RootLayout({
         <meta name="theme-color" content="#04140d" />
         <style dangerouslySetInnerHTML={{ __html: globalStyles }} />
         <script
-          defer
-          src="https://cdn.raadstag.com/tag.js"
-          data-tag-id="12333-91460ed26f1e492ab67bddf8ae1a6acf"
-          data-event-host="api.raadstag.com"
-          data-plat-params="utm_source,utm_medium,utm_content,utm_term"
-        />
-        <script
-          data-goatcounter="https://enfermeiro.goatcounter.com/count"
-          src="https://gc.zgo.at/count.js"
+          src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+          data-utmify-prevent-xcod-sck=""
+          data-utmify-prevent-subids=""
           async
+          defer
         />
         <script
           dangerouslySetInnerHTML={{
             __html:
               'document.addEventListener("click",function(event){var button=event.target.closest("[data-price-jump]");if(!button)return;var target=document.getElementById("oferta");if(!target)return;target.scrollIntoView({behavior:"auto",block:"start"});});',
-          }}
-        />
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html:
-              '(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","xtqlk5gjp2");',
           }}
         />
       </head>
